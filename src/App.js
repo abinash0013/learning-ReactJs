@@ -3,20 +3,43 @@ import logo from "./logo.svg";
 import "./App.css";
 // import User from "./User";
 
-function App() {
-    const [data, setData] = useState("Abinash");
-
-    function updateData() {
-        setData("Abinash_Sonar");
+// state in class component //
+class App extends Component {
+    //class component does not use useState it always us constructor and constructor use super to get this form its drive class
+    constructor() {
+        super();
+        this.state = {
+            data: 1,
+        };
     }
-    console.log("______________________");
-    return (
-        <div className="App">
-            <h1>{data}</h1>
-            <button onClick={updateData}>Update Data</button>
-        </div>
-    );
+    apple() {
+        this.setState({ data: this.state.data + 1 });
+    }
+    render() {
+        return (
+            <div className="App">
+                <h1>{this.state.data}</h1>
+                <button onClick={() => this.apple()}>update data</button>
+            </div>
+        );
+    }
 }
+
+// state in functional component //
+// function App() {
+//     const [data, setData] = useState("Abinash");
+
+//     function updateData() {
+//         setData("Abinash_Sonar");
+//     }
+//     console.log("______________________");
+//     return (
+//         <div className="App">
+//             <h1>{data}</h1>
+//             <button onClick={updateData}>Update Data</button>
+//         </div>
+//     );
+// }
 
 // function App() {
 //     function apple() {
