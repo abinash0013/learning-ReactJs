@@ -2,28 +2,48 @@ import React, { Component, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 // import User from "./User";
+// import { Student } from "./Student";
+import Student from "./Student";
+
+// Props in function component //
+function App() {
+    const [name, setName] = useState("Abinash");
+    return (
+        <div className="App">
+            <Student name={name} />
+            <button
+                onClick={() => {
+                    setName("Abinash Sonar");
+                }}
+            >
+                Update
+            </button>
+            {/* sending pros in functional component */}
+        </div>
+    );
+}
 
 // state in class component //
-class App extends Component {
-    //class component does not use useState it always us constructor and constructor use super to get this form its drive class
-    constructor() {
-        super();
-        this.state = {
-            data: 1,
-        };
-    }
-    apple() {
-        this.setState({ data: this.state.data + 1 });
-    }
-    render() {
-        return (
-            <div className="App">
-                <h1>{this.state.data}</h1>
-                <button onClick={() => this.apple()}>update data</button>
-            </div>
-        );
-    }
-}
+// class App extends Component {
+//     //class component does not use useState it always us constructor and constructor use super to get this form its drive class //
+//     constructor() {
+//         super();
+//         this.state = {
+//             data: 1,
+//         };
+//     }
+//     apple() {
+//         this.setState({ data: this.state.data + 1 });
+//     }
+//     render() {
+//         return (
+//             <div className="App">
+//                 <h1>{this.state.data}</h1>
+//                 <button onClick={() => this.apple()}>update data</button>
+//             </div>
+//         );
+//     }
+// }
 
 // state in functional component //
 // function App() {
