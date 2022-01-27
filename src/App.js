@@ -1,25 +1,40 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 // import User from "./User";
 
 function App() {
-    function apple() {
-        alert("Working on Click Function");
-    }
+    const [data, setData] = useState("Abinash");
 
+    function updateData() {
+        setData("Abinash_Sonar");
+    }
+    console.log("______________________");
     return (
         <div className="App">
-            <h1>Hello World.!</h1>
-            {/* first way */}
-            {/* <button onClick={apple}>Click Me</button> */}
-            {/* second way */}
-            {/* <button onClick={() => alert("alert text button")}>Click Me</button> */}
-            <button onClick={() => apple()}>Click Me</button>
-            {/* <User /> */}
+            <h1>{data}</h1>
+            <button onClick={updateData}>Update Data</button>
         </div>
     );
 }
+
+// function App() {
+//     function apple() {
+//         alert("Working on Click Function");
+//     }
+
+//     return (
+//         <div className="App">
+//             <h1>Hello World.!</h1>
+//             {/* first way */}
+//             {/* <button onClick={apple}>Click Me</button> */}
+//             {/* second way */}
+//             {/* <button onClick={() => alert("alert text button")}>Click Me</button> */}
+//             {/* <button onClick={() => apple()}>Click Me</button> */}
+//             {/* <User /> */}
+//         </div>
+//     );
+// }
 
 // class User extends Component {
 //     render() {
