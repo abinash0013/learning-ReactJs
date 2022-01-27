@@ -4,19 +4,26 @@ import "./App.css";
 // import User from "./User";
 
 function App() {
+    function apple() {
+        alert("Working on Click Function");
+    }
+
     return (
         <div className="App">
-            <User />
+            <h1>Hello World.!</h1>
+            {/* first way */}
+            <button onClick={apple}>Click Me</button>
+            {/* <User /> */}
         </div>
     );
 }
 
-class User extends Component {
-    render() {
-        // render is compulsory in class component while return is compulsory in return component
-        return <h1>Class Component from user file</h1>;
-    }
-}
+// class User extends Component {
+//     render() {
+//         // render is compulsory in class component while return is compulsory in return component
+//         return <h1>Class Component from user file</h1>;
+//     }
+// }
 
 // functional component in one fie //
 // function User() {
