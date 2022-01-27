@@ -1,27 +1,52 @@
 import React, { Component, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-// import User from "./User";
 // import { Student } from "./Student";
+// import User from "./User";
 import Student from "./Student";
 
-// Props in function component //
-function App() {
-    const [name, setName] = useState("Abinash");
-    return (
-        <div className="App">
-            <Student name={name} />
-            <button
-                onClick={() => {
-                    setName("Abinash Sonar");
-                }}
-            >
-                Update
-            </button>
-            {/* sending pros in functional component */}
-        </div>
-    );
+// props in class component //
+class App extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            name: "Abinash",
+        };
+        console.log("dadsfa");
+    }
+    render() {
+        return (
+            <div className="App">
+                <h1>Props in class component.. !</h1>
+                <Student name={this.state.name} />
+                {/* props always change on sender not by receiver */}
+                <button
+                    onClick={() => this.setState({ name: "Abinash Sonar" })}
+                >
+                    Update
+                </button>
+            </div>
+        );
+    }
 }
+
+// Props in function component //
+// function App() {
+//     const [name, setName] = useState("Abinash");
+//     return (
+//         <div className="App">
+//             <Student name={name} />
+//             <button
+//                 onClick={() => {
+//                     setName("Abinash Sonar");
+//                 }}
+//             >
+//                 Update
+//             </button>
+//             {/* sending pros in functional component */}
+//         </div>
+//     );
+// }
 
 // state in class component //
 // class App extends Component {
