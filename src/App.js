@@ -1,19 +1,30 @@
 import React, { Component, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Profile from "./Profile";
+import Login from "./Login";
+
+// import Profile from "./Profile";
 // import User from "./User";
 // import { Student } from "./Student";
 // import Student from "./Student";
 
-// Conditional rendering //
+// Basic Form Validation //
 function App() {
     return (
         <div className="App">
-            <Profile />
+            <Login />
         </div>
     );
 }
+
+// Conditional rendering //
+// function App() {
+//     return (
+//         <div className="App">
+//             <Profile />
+//         </div>
+//     );
+// }
 
 // Form handling in react js //
 // function App() {
