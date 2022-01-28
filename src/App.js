@@ -5,30 +5,42 @@ import "./App.css";
 // import User from "./User";
 import Student from "./Student";
 
-// props in class component //
-class App extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            name: "Abinash",
-        };
-        console.log("dadsfa");
-    }
-    render() {
-        return (
-            <div className="App">
-                <h1>Props in class component.. !</h1>
-                <Student name={this.state.name} />
-                {/* props always change on sender not by receiver */}
-                <button
-                    onClick={() => this.setState({ name: "Abinash Sonar" })}
-                >
-                    Update
-                </button>
-            </div>
-        );
-    }
+// Hide and show //
+function App() {
+    const [status, setStatus] = useState(true);
+    return (
+        <div className="App">
+            <button onClick={() => setStatus(false)}>Hide</button>
+            <button onClick={() => setStatus(true)}>Show</button>
+            {status ? <h1>Hello World</h1> : null}
+        </div>
+    );
 }
+
+// props in class component //
+// class App extends React.Component {
+//     constructor() {
+//         super();
+//         this.state = {
+//             name: "Abinash",
+//         };
+//         console.log("dadsfa");
+//     }
+//     render() {
+//         return (
+//             <div className="App">
+//                 <h1>Props in class component.. !</h1>
+//                 <Student name={this.state.name} />
+//                 {/* props always change on sender not by receiver */}
+//                 <button
+//                     onClick={() => this.setState({ name: "Abinash Sonar" })}
+//                 >
+//                     Update
+//                 </button>
+//             </div>
+//         );
+//     }
+// }
 
 // Props in function component //
 // function App() {
