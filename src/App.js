@@ -5,16 +5,57 @@ import "./App.css";
 // import User from "./User";
 import Student from "./Student";
 
-// Hide and show //
+// Form handling in react js //
 function App() {
-    const [status, setStatus] = useState(true);
+    const [name, setName] = useState("");
+    const [gender, setGender] = useState("");
+    const [tnc, setTnc] = useState(false);
+    function getFormData(e) {
+        console.log(name, gender, tnc);
+        e.preventDefault();
+    }
     return (
         <div className="App">
-            <button onClick={() => setStatus(!status)}>Toggle</button>
-            {status ? <h1>Hello Abinash</h1> : null}
+            <h1>Form Handling in React</h1>
+            <form onSubmit={getFormData}>
+                <input
+                    type="text"
+                    placeholder="Enter Full Name"
+                    onChange={(e) => setName(e.target.value)}
+                />
+                <br />
+                <br />
+                <label>Select Gender</label>
+                <select onChange={(e) => setGender(e.target.value)}>
+                    <option>Select Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+                <br />
+                <br />
+                <input
+                    type="checkbox"
+                    onChange={(e) => setTnc(e.target.checked)}
+                />
+                <span>Accept Term and condition</span>
+                <br />
+                <br />
+                <button type="Submit">Submit</button>
+            </form>
         </div>
     );
 }
+
+// Hide and show //
+// function App() {
+//     const [status, setStatus] = useState(true);
+//     return (
+//         <div className="App">
+//             <button onClick={() => setStatus(!status)}>Toggle</button>
+//             {status ? <h1>Hello Abinash</h1> : null}
+//         </div>
+//     );
+// }
 
 // Hide and show //
 // function App() {
