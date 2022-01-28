@@ -1,12 +1,34 @@
-import React from "react";
-import { Component } from "react/cjs/react.production.min";
+import React, { Component } from "react";
 
+// render using state in class component //
 class User extends Component {
+    constructor() {
+        super();
+        this.state = {
+            name: "Abinash",
+        };
+    }
     render() {
-        //console.log(this.props);
-        return <h1>User Component for passing props {this.props.name}</h1>;
+        console.log(this.state.name);
+        return (
+            <div>
+                <h1>User Component {this.state.name}</h1>
+                <button
+                    onClick={() => this.setState({ name: "Abinash Sonar" })}
+                >
+                    Click Me
+                </button>
+            </div>
+        );
     }
 }
+
+// class User extends Component {
+//     render() {
+//         //console.log(this.props);
+//         return <h1>User Component for passing props {this.props.name}</h1>;
+//     }
+// }
 
 // function User(p) {
 //     return (

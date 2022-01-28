@@ -2,23 +2,34 @@ import React, { Component, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import User from "./User";
+import { render } from "@testing-library/react";
 // import Login from "./Login";
 // import Profile from "./Profile";
 // import User from "./User";
 // import { Student } from "./Student";
 // import Student from "./Student";
 
-// render life cycle method in class component //
+// render life cycle method using state in class component //
 function App() {
-    const [name, setName] = useState("Abinash");
     return (
         <div className="App">
-            <h1>Render life cycle method in class component</h1>
-            <User name={name} />
-            <button onClick={() => setName("Abinash Sonar")}>Click</button>
+            {/* <h1>Render life cycle method using state in class component</h1> */}
+            <User />
         </div>
     );
 }
+
+// render life cycle method in class component //
+// function App() {
+//     const [name, setName] = useState("Abinash");
+//     return (
+//         <div className="App">
+//             <h1>Render life cycle method in class component</h1>
+//             <User name={name} />
+//             <button onClick={() => setName("Abinash Sonar")}>Click</button>
+//         </div>
+//     );
+// }
 
 // constructor life cycle method class component //
 // class App extends Component {
