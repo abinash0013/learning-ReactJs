@@ -1,13 +1,29 @@
 import React, { Component, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import User from "./User";
-
+// import User from "./User";
 // import Login from "./Login";
 // import Profile from "./Profile";
 // import User from "./User";
 // import { Student } from "./Student";
 // import Student from "./Student";
+
+// class component //
+class App extends Component {
+    constructor() {
+        super();
+        this.state = {
+            data: "constructor first life cycle method using class component",
+        };
+    }
+    render() {
+        return (
+            <div className="App">
+                <h1>{this.state.data}</h1>
+            </div>
+        );
+    }
+}
 
 // Basic Form Validation //
 // function App() {
@@ -18,16 +34,16 @@ import User from "./User";
 //     );
 // }
 
-function App() {
-    function getData() {
-        alert("hello from app");
-    }
-    return (
-        <div className="App">
-            <User data={getData} />
-        </div>
-    );
-}
+// function App() {
+//     function getData() {
+//         alert("hello from app");
+//     }
+//     return (
+//         <div className="App">
+//             <User data={getData} /> {/* using data as a props */}
+//         </div>
+//     );
+// }
 
 // Conditional rendering //
 // function App() {

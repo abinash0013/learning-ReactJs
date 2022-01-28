@@ -6,8 +6,11 @@ function User(p) {
             <h1>User Component</h1>
             {/* first way to call with arrow function // */}
             <button onClick={() => p.data()}>Call Data with Function</button>
+            {/* receiving data as a props */}
+
             {/* second way to call without arrow function // */}
-            <button onClick={p.data}>Call Data without Function</button>
+            {/* <button onClick={p.data}>Call Data without Function</button> */}
+            {/* receiving data as a props */}
         </div>
     );
 }
