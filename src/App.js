@@ -9,15 +9,42 @@ import { render } from "@testing-library/react";
 // import { Student } from "./Student";
 // import Student from "./Student";
 
-// render life cycle method using state in class component //
-function App() {
-    return (
-        <div className="App">
-            {/* <h1>Render life cycle method using state in class component</h1> */}
-            <User />
-        </div>
-    );
+// component did mount //
+class App extends Component {
+    constructor() {
+        super();
+        console.log("Constructor");
+        this.state = {
+            name: "Abinash",
+        };
+    }
+    componentDidMount() {
+        console.log("Component Did Mount");
+    }
+    render() {
+        console.log("Render");
+        return (
+            <div className="App">
+                <h1>Component Did Mount {this.state.name}</h1>
+                <button
+                    onClick={() => this.setState({ name: "Abinash Sonar" })}
+                >
+                    Update Name
+                </button>
+            </div>
+        );
+    }
 }
+
+// render life cycle method using state in class component //
+// function App() {
+//     return (
+//         <div className="App">
+//             {/* <h1>Render life cycle method using state in class component</h1> */}
+//             <User />
+//         </div>
+//     );
+// }
 
 // render life cycle method in class component //
 // function App() {
