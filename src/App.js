@@ -1,50 +1,61 @@
 import React, { Component, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-// import { Student } from "./Student";
+import Profile from "./Profile";
 // import User from "./User";
-import Student from "./Student";
+// import { Student } from "./Student";
+// import Student from "./Student";
 
-// Form handling in react js //
+// Conditional rendering //
 function App() {
-    const [name, setName] = useState("");
-    const [gender, setGender] = useState("");
-    const [tnc, setTnc] = useState(false);
-    function getFormData(e) {
-        console.log(name, gender, tnc);
-        e.preventDefault();
-    }
     return (
         <div className="App">
-            <h1>Form Handling in React</h1>
-            <form onSubmit={getFormData}>
-                <input
-                    type="text"
-                    placeholder="Enter Full Name"
-                    onChange={(e) => setName(e.target.value)}
-                />
-                <br />
-                <br />
-                <label>Select Gender</label>
-                <select onChange={(e) => setGender(e.target.value)}>
-                    <option>Select Gender</option>
-                    <option>Male</option>
-                    <option>Female</option>
-                </select>
-                <br />
-                <br />
-                <input
-                    type="checkbox"
-                    onChange={(e) => setTnc(e.target.checked)}
-                />
-                <span>Accept Term and condition</span>
-                <br />
-                <br />
-                <button type="Submit">Submit</button>
-            </form>
+            <h1>Conditional Rendering</h1>
+            <Profile />
         </div>
     );
 }
+
+// Form handling in react js //
+// function App() {
+//     const [name, setName] = useState("");
+//     const [gender, setGender] = useState("");
+//     const [tnc, setTnc] = useState(false);
+//     function getFormData(e) {
+//         console.log(name, gender, tnc);
+//         e.preventDefault();
+//     }
+//     return (
+//         <div className="App">
+//             <h1>Form Handling in React</h1>
+//             <form onSubmit={getFormData}>
+//                 <input
+//                     type="text"
+//                     placeholder="Enter Full Name"
+//                     onChange={(e) => setName(e.target.value)}
+//                 />
+//                 <br />
+//                 <br />
+//                 <label>Select Gender</label>
+//                 <select onChange={(e) => setGender(e.target.value)}>
+//                     <option>Select Gender</option>
+//                     <option>Male</option>
+//                     <option>Female</option>
+//                 </select>
+//                 <br />
+//                 <br />
+//                 <input
+//                     type="checkbox"
+//                     onChange={(e) => setTnc(e.target.checked)}
+//                 />
+//                 <span>Accept Term and condition</span>
+//                 <br />
+//                 <br />
+//                 <button type="Submit">Submit</button>
+//             </form>
+//         </div>
+//     );
+// }
 
 // Hide and show //
 // function App() {
