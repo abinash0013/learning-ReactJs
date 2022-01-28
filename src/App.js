@@ -10,12 +10,23 @@ function App() {
     const [status, setStatus] = useState(true);
     return (
         <div className="App">
-            <button onClick={() => setStatus(false)}>Hide</button>
-            <button onClick={() => setStatus(true)}>Show</button>
-            {status ? <h1>Hello World</h1> : null}
+            <button onClick={() => setStatus(!status)}>Toggle</button>
+            {status ? <h1>Hello Abinash</h1> : null}
         </div>
     );
 }
+
+// Hide and show //
+// function App() {
+//     const [status, setStatus] = useState(true);
+//     return (
+//         <div className="App">
+//             <button onClick={() => setStatus(false)}>Hide</button>
+//             <button onClick={() => setStatus(true)}>Show</button>
+//             {status ? <h1>Hello World</h1> : null}
+//         </div>
+//     );
+// }
 
 // props in class component //
 // class App extends React.Component {
