@@ -1,18 +1,30 @@
 import React, { Component, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Login from "./Login";
+import User from "./User";
 
+// import Login from "./Login";
 // import Profile from "./Profile";
 // import User from "./User";
 // import { Student } from "./Student";
 // import Student from "./Student";
 
 // Basic Form Validation //
+// function App() {
+//     return (
+//         <div className="App">
+//             <Login />
+//         </div>
+//     );
+// }
+
 function App() {
+    function getData() {
+        alert("hello from app");
+    }
     return (
         <div className="App">
-            <Login />
+            <User data={getData} />
         </div>
     );
 }

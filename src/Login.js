@@ -47,7 +47,7 @@ function Login() {
                 <br />
                 <br />
                 <input
-                    type="text"
+                    type="password"
                     placeholder="Enter Username"
                     onChange={passHandler}
                 />
