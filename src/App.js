@@ -1,29 +1,41 @@
 import React, { Component, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-// import User from "./User";
+import User from "./User";
 // import Login from "./Login";
 // import Profile from "./Profile";
 // import User from "./User";
 // import { Student } from "./Student";
 // import Student from "./Student";
 
-// class component //
-class App extends Component {
-    constructor() {
-        super();
-        this.state = {
-            data: "constructor first life cycle method using class component",
-        };
-    }
-    render() {
-        return (
-            <div className="App">
-                <h1>{this.state.data}</h1>
-            </div>
-        );
-    }
+// render life cycle method in class component //
+function App() {
+    const [name, setName] = useState("Abinash");
+    return (
+        <div className="App">
+            <h1>Render life cycle method in class component</h1>
+            <User name={name} />
+            <button onClick={() => setName("Abinash Sonar")}>Click</button>
+        </div>
+    );
 }
+
+// constructor life cycle method class component //
+// class App extends Component {
+//     constructor() {
+//         super();
+//         this.state = {
+//             data: "constructor first life cycle method using class component",
+//         };
+//     }
+//     render() {
+//         return (
+//             <div className="App">
+//                 <h1>{this.state.data}</h1>
+//             </div>
+//         );
+//     }
+// }
 
 // Basic Form Validation //
 // function App() {
