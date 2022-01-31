@@ -28,13 +28,15 @@ function App() {
                         <th>Email</th>
                         <th>Phone</th>
                     </tr>
-                    {StudentName.map((data, i) => (
-                        <tr key={i}>
-                            <td>{data.name}</td>
-                            <td>{data.email}</td>
-                            <td>{data.phone}</td>
-                        </tr>
-                    ))}
+                    {StudentName.map((data, i) =>
+                        data.phone === 12367890 ? (
+                            <tr key={i}>
+                                <td>{data.name}</td>
+                                <td>{data.email}</td>
+                                <td>{data.phone}</td>
+                            </tr>
+                        ) : null
+                    )}
                 </tbody>
             </Table>
         </div>
