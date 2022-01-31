@@ -1,4 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
 import logo from "./logo.svg";
 import "./App.css";
 // import "./Style.css";
@@ -8,14 +9,24 @@ import "./App.css";
 // import Student from "./Student";
 import style from "./Modular.module.css";
 
-// 3 modular style in react //
+// work on button using react
 function App() {
     return (
         <div className="App">
-            <h1 className={style.success}>Modular css in react</h1>
+            <h1>using bootstrap button</h1>
+            <Button onClick={() => alert("Checking alright")}>Primary</Button>
         </div>
     );
 }
+
+// 3 modular style in react //
+// function App() {
+//     return (
+//         <div className="App">
+//             <h1 className={style.success}>Modular css in react</h1>
+//         </div>
+//     );
+// }
 
 // 2 internal style in react //
 // function App() {
