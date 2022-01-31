@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 import logo from "./logo.svg";
 import "./App.css";
 // import "./Style.css";
@@ -9,15 +9,47 @@ import "./App.css";
 // import Student from "./Student";
 import style from "./Modular.module.css";
 
-// work on button using react
+// map function //
 function App() {
+    // const StudentName = ["Abinash", "kartik", "alok", "satyen"];
+    const StudentName = [
+        { name: "Abinash", email: "Abinash@gmail.com", phone: 12367890 },
+        { name: "kartik", email: "kartik@gmail.com", phone: 234678901 },
+        { name: "alok", email: "alok@gmail.com", phone: 346789012 },
+        { name: "satyen", email: "satyen@gmail.com", phone: 4567890123 },
+    ];
     return (
         <div className="App">
-            <h1>using bootstrap button</h1>
-            <Button onClick={() => alert("Checking alright")}>Primary</Button>
+            <h1>Handle Array from the list</h1>
+            <Table striped bordered hover>
+                <tbody>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                    </tr>
+                    {StudentName.map((data, i) => (
+                        <tr key={i}>
+                            <td>{data.name}</td>
+                            <td>{data.email}</td>
+                            <td>{data.phone}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </Table>
         </div>
     );
 }
+
+// work on button using react
+// function App() {
+//     return (
+//         <div className="App">
+//             <h1>using bootstrap button</h1>
+//             <Button onClick={() => alert("Checking alright")}>Primary</Button>
+//         </div>
+//     );
+// }
 
 // 3 modular style in react //
 // function App() {
