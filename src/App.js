@@ -2,24 +2,33 @@ import React, { Component, useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import User from "./User";
-import { render } from "@testing-library/react";
+import "./Style.css";
 // import Login from "./Login";
 // import Profile from "./Profile";
 // import Student from "./Student";
 
-// Conditional useEffect in functional component //
+// style in react //
 function App() {
-    const [data, setData] = useState(10);
-    const [count, setCount] = useState(100);
-
     return (
         <div className="App">
-            <User count={count} data={data} />
-            <button onClick={() => setData(data + 1)}>Update Data</button>
-            <button onClick={() => setCount(count + 1)}>Update Counter</button>
+            <h1 className="primary">Style in React</h1>
         </div>
     );
 }
+
+// Conditional useEffect in functional component //
+// function App() {
+//     const [data, setData] = useState(10);
+//     const [count, setCount] = useState(100);
+
+//     return (
+//         <div className="App">
+//             <User count={count} data={data} />
+//             <button onClick={() => setData(data + 1)}>Update Data</button>
+//             <button onClick={() => setCount(count + 1)}>Update Counter</button>
+//         </div>
+//     );
+// }
 
 // basic useEffect in functional component //
 // as a life cycle method
