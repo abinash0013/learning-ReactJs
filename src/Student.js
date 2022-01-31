@@ -1,15 +1,26 @@
 import React, { Component } from "react";
 
-export default class Student extends Component {
+class Student extends Component {
     render() {
         return (
             <div>
-                <h1>props in class component</h1>
-                <p>Student Name is : {this.props.name} </p>
+                <h1>pre props in component did update</h1>
+                {/* <p>Count: {this.props.count + 1}</p> */}
             </div>
         );
     }
 }
+
+// export default class Student extends Component {
+//     render() {
+//         return (
+//             <div>
+//                 <h1>props in class component</h1>
+//                 <p>Student Name is : {this.props.name} </p>
+//             </div>
+//         );
+//     }
+// }
 
 // export default Student;
 
@@ -33,4 +44,4 @@ export default class Student extends Component {
 //     );
 // }
 
-// export default Student;
+export default Student;

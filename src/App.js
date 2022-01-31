@@ -6,43 +6,32 @@ import { render } from "@testing-library/react";
 // import Login from "./Login";
 // import Profile from "./Profile";
 // import User from "./User";
-// import { Student } from "./Student";
 // import Student from "./Student";
 
-// preProps and preState //
+// Should component update //
 class App extends Component {
     constructor() {
         super();
-        console.log("constructor");
         this.state = {
             count: 0,
         };
     }
-    componentDidUpdate(preProps, preState, snapshots) {
-        console.log("componentDidUpdate", preState.count, this.state.count);
-        // yes, we can update from here also but with condition otherwise it will go with infinite loop //
-
-        // simple with condition //
-        // if (preState.count === this.state.count) {
-        //     alert("Data is Same");
-        /// }
-
-        // counter without condition //
-        // this.setState({ count: this.state.count + 1 });
-
-        // counter with condition //
-        if (this.state.count < 10) {
-            this.setState({ count: this.state.count + 1 });
+    // should component update block rendering //
+    shouldComponentUpdate() {
+        console.log("Should Component Update", this.state.count);
+        // return "true" remove the blocking rendering //
+        // return true;
+        if (this.state.count > 5 && this.state.count < 10) {
+            return true;
         }
     }
     render() {
-        console.log("render");
         return (
             <div className="App">
-                <h1>Component Did Update {this.state.count} </h1>
+                <h1>Should Component Update {this.state.count}</h1>
                 <button
                     onClick={() => {
-                        this.setState({ count: 1 });
+                        this.setState({ count: this.state.count + 1 });
                     }}
                 >
                     Update Counter
@@ -51,6 +40,48 @@ class App extends Component {
         );
     }
 }
+// preState in Component did update//
+// class App extends Component {
+//     constructor() {
+//         super();
+//         console.log("constructor");
+//         this.state = {
+//             count: 0,
+//         };
+//     }
+//     componentDidUpdate(preProps, preState, snapshots) {
+//         console.log("componentDidUpdate", preState.count, this.state.count);
+//         // yes, we can update from here also but with condition otherwise it will go with infinite loop //
+
+//         // simple with condition //
+//         // if (preState.count === this.state.count) {
+//         //     alert("Data is Same");
+//         /// }
+
+//         // counter without condition //
+//         // this.setState({ count: this.state.count + 1 });
+
+//         // counter with condition //
+//         if (this.state.count < 10) {
+//             this.setState({ count: this.state.count + 1 });
+//         }
+//     }
+//     render() {
+//         console.log("render");
+//         return (
+//             <div className="App">
+//                 <h1>Component Did Update {this.state.count} </h1>
+//                 <button
+//                     onClick={() => {
+//                         this.setState({ count: 1 });
+//                     }}
+//                 >
+//                     Update Counter
+//                 </button>
+//             </div>
+//         );
+//     }
+// }
 
 // component did update //
 // class App extends Component {
