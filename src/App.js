@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import User from "./User";
@@ -8,18 +8,33 @@ import { render } from "@testing-library/react";
 // import User from "./User";
 // import Student from "./Student";
 
-// Hooks in react with functional component //
+// useEffect in functional component //
+// as a life cycle method
 function App() {
-    const [data, setData] = useState("Abinash");
+    const [count, setCount] = useState(0);
+    useEffect(() => {
+        console.log("useEffect");
+        // alert("adadaf");
+    });
     return (
         <div className="App">
-            <h1>Hello {data}.!</h1>
-            <button onClick={() => setData("Abinash Sonar")}>
-                Update Data
-            </button>
+            <h1>useEffect in React {count}</h1>
+            <button onClick={() => setCount(count + 1)}>Counter</button>
         </div>
     );
 }
+// Hooks in react with functional component //
+// function App() {
+//     const [data, setData] = useState("Abinash");
+//     return (
+//         <div className="App">
+//             <h1>Hello {data}.!</h1>
+//             <button onClick={() => setData("Abinash Sonar")}>
+//                 Update Data
+//             </button>
+//         </div>
+//     );
+// }
 
 // component will unmount //
 // class App extends Component {
