@@ -9,34 +9,77 @@ import { render } from "@testing-library/react";
 // import { Student } from "./Student";
 // import Student from "./Student";
 
-// component did update //
+// preProps and preState //
 class App extends Component {
     constructor() {
         super();
-        console.log("Constructor");
+        console.log("constructor");
         this.state = {
-            name: "Abinash",
+            count: 0,
         };
     }
-    componentDidUpdate() {
-        console.log("Component Did update");
+    componentDidUpdate(preProps, preState, snapshots) {
+        console.log("componentDidUpdate", preState.count, this.state.count);
+        // yes, we can update from here also but with condition otherwise it will go with infinite loop //
+
+        // simple with condition //
+        // if (preState.count === this.state.count) {
+        //     alert("Data is Same");
+        /// }
+
+        // counter without condition //
+        // this.setState({ count: this.state.count + 1 });
+
+        // counter with condition //
+        if (this.state.count < 10) {
+            this.setState({ count: this.state.count + 1 });
+        }
     }
     render() {
         console.log("render");
         return (
             <div className="App">
-                <h1>Component Did Update</h1>
+                <h1>Component Did Update {this.state.count} </h1>
                 <button
                     onClick={() => {
-                        this.setState({ name: "Abniash Sonar" });
+                        this.setState({ count: 1 });
                     }}
                 >
-                    Update Name
+                    Update Counter
                 </button>
             </div>
         );
     }
 }
+
+// component did update //
+// class App extends Component {
+//     constructor() {
+//         super();
+//         console.log("Constructor");
+//         this.state = {
+//             name: "Abinash",
+//         };
+//     }
+//     componentDidUpdate() {
+//         console.log("Component Did update");
+//     }
+//     render() {
+//         console.log("render");
+//         return (
+//             <div className="App">
+//                 <h1>Component Did Update</h1>
+//                 <button
+//                     onClick={() => {
+//                         this.setState({ name: "Abniash Sonar" });
+//                     }}
+//                 >
+//                     Update Name
+//                 </button>
+//             </div>
+//         );
+//     }
+// }
 
 // component did mount //
 // class App extends Component {
