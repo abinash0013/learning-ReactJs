@@ -7,14 +7,25 @@ import "./Style.css";
 // import Profile from "./Profile";
 // import Student from "./Student";
 
-// style in react //
+// internal style in react //
 function App() {
     return (
         <div className="App">
-            <h1 className="primary">Style in React</h1>
+            <h1 style={{ backgroundColor: "red", color: "white" }}>
+                Internal css
+            </h1>
         </div>
     );
 }
+
+// external style in react //
+// function App() {
+//     return (
+//         <div className="App">
+//             <h1 className="primary">External css</h1>
+//         </div>
+//     );
+// }
 
 // Conditional useEffect in functional component //
 // function App() {
