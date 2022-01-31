@@ -6,40 +6,66 @@ import { render } from "@testing-library/react";
 // import Login from "./Login";
 // import Profile from "./Profile";
 // import User from "./User";
-// import Student from "./Student";
+import Student from "./Student";
 
-// Should component update //
+// component will unmount //
 class App extends Component {
     constructor() {
         super();
         this.state = {
-            count: 0,
+            show: true,
         };
-    }
-    // should component update block rendering //
-    shouldComponentUpdate() {
-        console.log("Should Component Update", this.state.count);
-        // return "true" remove the blocking rendering //
-        // return true;
-        if (this.state.count > 5 && this.state.count < 10) {
-            return true;
-        }
     }
     render() {
         return (
             <div className="App">
-                <h1>Should Component Update {this.state.count}</h1>
+                {this.state.show ? (
+                    <Student />
+                ) : (
+                    <h1>Child Component Remove alert will show</h1>
+                )}
                 <button
-                    onClick={() => {
-                        this.setState({ count: this.state.count + 1 });
-                    }}
+                    onClick={() => this.setState({ show: !this.state.show })}
                 >
-                    Update Counter
+                    Toggle Child Component
                 </button>
             </div>
         );
     }
 }
+
+// Should component update //
+// class App extends Component {
+//     constructor() {
+//         super();
+//         this.state = {
+//             count: 0,
+//         };
+//     }
+//     // should component update block rendering //
+//     shouldComponentUpdate() {
+//         console.log("Should Component Update", this.state.count);
+//         // return "true" remove the blocking rendering //
+//         // return true;
+//         if (this.state.count > 5 && this.state.count < 10) {
+//             return true;
+//         }
+//     }
+//     render() {
+//         return (
+//             <div className="App">
+//                 <h1>Should Component Update {this.state.count}</h1>
+//                 <button
+//                     onClick={() => {
+//                         this.setState({ count: this.state.count + 1 });
+//                     }}
+//                 >
+//                     Update Counter
+//                 </button>
+//             </div>
+//         );
+//     }
+// }
 // preState in Component did update//
 // class App extends Component {
 //     constructor() {

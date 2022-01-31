@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 
 class Student extends Component {
+    componentWillUnmount() {
+        alert("componentWillUnmount Called");
+    }
     render() {
         return (
-            <div>
-                <h1>pre props in component did update</h1>
-                {/* <p>Count: {this.props.count + 1}</p> */}
+            <div className="App">
+                <h1>Student Component</h1>
             </div>
         );
     }
