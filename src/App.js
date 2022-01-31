@@ -6,33 +6,46 @@ import { render } from "@testing-library/react";
 // import Login from "./Login";
 // import Profile from "./Profile";
 // import User from "./User";
-import Student from "./Student";
+// import Student from "./Student";
+
+// Hooks in react with functional component //
+function App() {
+    const [data, setData] = useState("Abinash");
+    return (
+        <div className="App">
+            <h1>Hello {data}.!</h1>
+            <button onClick={() => setData("Abinash Sonar")}>
+                Update Data
+            </button>
+        </div>
+    );
+}
 
 // component will unmount //
-class App extends Component {
-    constructor() {
-        super();
-        this.state = {
-            show: true,
-        };
-    }
-    render() {
-        return (
-            <div className="App">
-                {this.state.show ? (
-                    <Student />
-                ) : (
-                    <h1>Child Component Remove alert will show</h1>
-                )}
-                <button
-                    onClick={() => this.setState({ show: !this.state.show })}
-                >
-                    Toggle Child Component
-                </button>
-            </div>
-        );
-    }
-}
+// class App extends Component {
+//     constructor() {
+//         super();
+//         this.state = {
+//             show: true,
+//         };
+//     }
+//     render() {
+//         return (
+//             <div className="App">
+//                 {this.state.show ? (
+//                     <Student />
+//                 ) : (
+//                     <h1>Child Component Remove alert will show</h1>
+//                 )}
+//                 <button
+//                     onClick={() => this.setState({ show: !this.state.show })}
+//                 >
+//                     Toggle Child Component
+//                 </button>
+//             </div>
+//         );
+//     }
+// }
 
 // Should component update //
 // class App extends Component {
