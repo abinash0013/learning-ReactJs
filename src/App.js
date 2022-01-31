@@ -5,24 +5,38 @@ import User from "./User";
 import { render } from "@testing-library/react";
 // import Login from "./Login";
 // import Profile from "./Profile";
-// import User from "./User";
 // import Student from "./Student";
 
-// useEffect in functional component //
-// as a life cycle method
+// Conditional useEffect in functional component //
 function App() {
-    const [count, setCount] = useState(0);
-    useEffect(() => {
-        console.log("useEffect");
-        // alert("adadaf");
-    });
+    const [data, setData] = useState(10);
+    const [count, setCount] = useState(100);
+
     return (
         <div className="App">
-            <h1>useEffect in React {count}</h1>
-            <button onClick={() => setCount(count + 1)}>Counter</button>
+            <User count={count} data={data} />
+            <button onClick={() => setData(data + 1)}>Update Data</button>
+            <button onClick={() => setCount(count + 1)}>Update Counter</button>
         </div>
     );
 }
+
+// basic useEffect in functional component //
+// as a life cycle method
+// function App() {
+//     const [count, setCount] = useState(0);
+//     useEffect(() => {
+//         console.log("useEffect");
+//         // alert("adadaf");
+//     });
+//     return (
+//         <div className="App">
+//             <h1>useEffect in React {count}</h1>
+//             <button onClick={() => setCount(count + 1)}>Counter</button>
+//         </div>
+//     );
+// }
+
 // Hooks in react with functional component //
 // function App() {
 //     const [data, setData] = useState("Abinash");

@@ -1,27 +1,43 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
+
+// useEffect in functional component //
+function User(props) {
+    useEffect(() => {
+        console.log("useEffect count");
+    }, [props.count]);
+    useEffect(() => {
+        console.log("useEffect data");
+    }, [props.data]);
+    return (
+        <div className="App">
+            <h1>Count Props: {props.count}</h1>
+            <h1>Count Props: {props.data}</h1>
+        </div>
+    );
+}
 
 // render using state in class component //
-class User extends Component {
-    constructor() {
-        super();
-        this.state = {
-            name: "Abinash",
-        };
-    }
-    render() {
-        console.log(this.state.name);
-        return (
-            <div>
-                <h1>User Component {this.state.name}</h1>
-                <button
-                    onClick={() => this.setState({ name: "Abinash Sonar" })}
-                >
-                    Click Me
-                </button>
-            </div>
-        );
-    }
-}
+// class User extends Component {
+//     constructor() {
+//         super();
+//         this.state = {
+//             name: "Abinash",
+//         };
+//     }
+//     render() {
+//         console.log(this.state.name);
+//         return (
+//             <div>
+//                 <h1>User Component {this.state.name}</h1>
+//                 <button
+//                     onClick={() => this.setState({ name: "Abinash Sonar" })}
+//                 >
+//                     Click Me
+//                 </button>
+//             </div>
+//         );
+//     }
+// }
 
 // class User extends Component {
 //     render() {
