@@ -1,24 +1,34 @@
 import React, { Component, useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import User from "./User";
-import "./Style.css";
+// import "./Style.css";
+// import User from "./User";
 // import Login from "./Login";
 // import Profile from "./Profile";
 // import Student from "./Student";
+import style from "./Modular.module.css";
 
-// internal style in react //
+// 3 modular style in react //
 function App() {
     return (
         <div className="App">
-            <h1 style={{ backgroundColor: "red", color: "white" }}>
-                Internal css
-            </h1>
+            <h1 className={style.success}>Modular css in react</h1>
         </div>
     );
 }
 
-// external style in react //
+// 2 internal style in react //
+// function App() {
+//     return (
+//         <div className="App">
+//             <h1 style={{ backgroundColor: "red", color: "white" }}>
+//                 Internal css
+//             </h1>
+//         </div>
+//     );
+// }
+
+// 1 external style in react //
 // function App() {
 //     return (
 //         <div className="App">
