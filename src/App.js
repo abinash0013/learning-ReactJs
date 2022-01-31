@@ -9,7 +9,7 @@ import { render } from "@testing-library/react";
 // import { Student } from "./Student";
 // import Student from "./Student";
 
-// component did mount //
+// component did update //
 class App extends Component {
     constructor() {
         super();
@@ -18,16 +18,18 @@ class App extends Component {
             name: "Abinash",
         };
     }
-    componentDidMount() {
-        console.log("Component Did Mount");
+    componentDidUpdate() {
+        console.log("Component Did update");
     }
     render() {
-        console.log("Render");
+        console.log("render");
         return (
             <div className="App">
-                <h1>Component Did Mount {this.state.name}</h1>
+                <h1>Component Did Update</h1>
                 <button
-                    onClick={() => this.setState({ name: "Abinash Sonar" })}
+                    onClick={() => {
+                        this.setState({ name: "Abniash Sonar" });
+                    }}
                 >
                     Update Name
                 </button>
@@ -35,6 +37,33 @@ class App extends Component {
         );
     }
 }
+
+// component did mount //
+// class App extends Component {
+//     constructor() {
+//         super();
+//         console.log("Constructor");
+//         this.state = {
+//             name: "Abinash",
+//         };
+//     }
+//     componentDidMount() {
+//         console.log("Component Did Mount");
+//     }
+//     render() {
+//         console.log("Render");
+//         return (
+//             <div className="App">
+//                 <h1>Component Did Mount {this.state.name}</h1>
+//                 <button
+//                     onClick={() => this.setState({ name: "Abinash Sonar" })}
+//                 >
+//                     Update Name
+//                 </button>
+//             </div>
+//         );
+//     }
+// }
 
 // render life cycle method using state in class component //
 // function App() {
