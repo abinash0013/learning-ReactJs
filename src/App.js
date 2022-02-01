@@ -4,6 +4,7 @@ import React, {
     PureComponent,
     useEffect,
     useState,
+    useMemo,
 } from "react";
 // import { Button, Table } from "react-bootstrap";
 // import logo from "./logo.svg";
@@ -16,34 +17,69 @@ import User from "./User";
 // import Student from "./Student";
 // import style from "./Modular.module.css";
 
-// pure component using class component //
+// use memo in functional component //
+function App() {
+    const [count, setCount] = useState(0);
+    const [item, setItem] = useState(10);
+
+    const multiCountMemo = useMemo(
+        function multiCount() {
+            console.log("multicount");
+            return count * 5;
+        },
+        [count]
+    );
+    return (
+        <div className="App">
+            <h1>useMemo Hook in functional component</h1>
+            <h2>{count}</h2>
+            <h2>{item}</h2>
+            <h2>{multiCountMemo}</h2>
+            <button
+                onClick={() => {
+                    setCount(count + 1);
+                }}
+            >
+                Update count
+            </button>
+            <button
+                onClick={() => {
+                    setItem(item * 10);
+                }}
+            >
+                Update item
+            </button>
+        </div>
+    );
+}
+
+// PureComponent with other component //
+// *** pure component is only used by class component //
 // *** functional component use memo as pure component //
 // *** pure component stop the rerendering of the component//
 
-// PureComponent with other component //
-// class User extends PureComponent {
-class App extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            count: 1,
-        };
-    }
-    render() {
-        return (
-            <div className="App">
-                <User count={this.state.count} />
-                <button
-                    onClick={() =>
-                        this.setState({ count: this.state.count + 1 })
-                    }
-                >
-                    Update counter
-                </button>
-            </div>
-        );
-    }
-}
+// class App extends React.Component {
+//     constructor() {
+//         super();
+//         this.state = {
+//             count: 1,
+//         };
+//     }
+//     render() {
+//         return (
+//             <div className="App">
+//                 <User count={this.state.count} />
+//                 <button
+//                     onClick={() =>
+//                         this.setState({ count: this.state.count + 1 })
+//                     }
+//                 >
+//                     Update counter
+//                 </button>
+//             </div>
+//         );
+//     }
+// }
 
 // basic of pure component //
 // class App extends PureComponent {
