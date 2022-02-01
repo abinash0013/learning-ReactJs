@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component, Fragment, useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import logo from "./logo.svg";
 import "./App.css";
@@ -9,21 +9,50 @@ import User from "./User";
 // import Student from "./Student";
 // import style from "./Modular.module.css";
 
+// fragment in react using 2st way //
 function App() {
-    const users = [
-        { name: "Abinash", email: "abinash@gmail.com", contact: "123" },
-        { name: "Alok", email: "alok@gmail.com", contact: "234" },
-        { name: "Anjan", email: "anjan@gmail.com", contact: "345" },
-    ];
     return (
-        <div className="App">
-            <h1>Reuse Component in loop</h1>
-            {users.map((item, i) => (
-                <User data={item} />
-            ))}
-        </div>
+        <>
+            <h1>React fragment</h1>
+            <h1>React fragment</h1>
+        </>
     );
 }
+// fragment in react using 2st way //
+// function App() {
+//     return (
+//         <Fragment>
+//             <h1>React fragment</h1>
+//             <h1>React fragment</h1>
+//         </Fragment>
+//     );
+// }
+// fragment in react using 1st way //
+// function App() {
+//     return (
+//         <React.Fragment>
+//             <h1>React fragment</h1>
+//             <h1>React fragment</h1>
+//         </React.Fragment>
+//     );
+// }
+
+// Reuse Component in loop //
+// function App() {
+//     const users = [
+//         { name: "Abinash", email: "abinash@gmail.com", contact: "123" },
+//         { name: "Alok", email: "alok@gmail.com", contact: "234" },
+//         { name: "Anjan", email: "anjan@gmail.com", contact: "345" },
+//     ];
+//     return (
+//         <div className="App">
+//             <h1>Reuse Component in loop</h1>
+//             {users.map((item, i) => (
+//                 <User data={item} />
+//             ))}
+//         </div>
+//     );
+// }
 
 // map function //
 // function App() {
