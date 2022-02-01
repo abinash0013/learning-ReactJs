@@ -1,4 +1,16 @@
-// import React, { Component, useEffect } from "react";
+import React, { Component, useEffect, PureComponent } from "react";
+
+// PureComponent with other component //
+class User extends PureComponent {
+    render() {
+        console.warn("user child component render");
+        return (
+            <div className="App">
+                <h1>User Component</h1>
+            </div>
+        );
+    }
+}
 
 // Reuse Component in loop //
 // function User(props) {
@@ -81,4 +93,4 @@
 //     }
 // }
 
-// export default User;
+export default User;

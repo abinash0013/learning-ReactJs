@@ -11,6 +11,7 @@ import "./App.css";
 // import Cols from "./Cols";
 // import "./Style.css";
 // import Login from "./Login";
+import User from "./User";
 // import Profile from "./Profile";
 // import Student from "./Student";
 // import style from "./Modular.module.css";
@@ -19,7 +20,9 @@ import "./App.css";
 // *** functional component use memo as pure component //
 // *** pure component stop the rerendering of the component//
 
-class App extends PureComponent {
+// PureComponent with other component //
+// class User extends PureComponent {
+class App extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -27,22 +30,47 @@ class App extends PureComponent {
         };
     }
     render() {
-        console.log("check-re rendering");
         return (
             <div className="App">
-                <h1>Pure Component in React {this.state.count}</h1>
+                <User count={this.state.count} />
                 <button
                     onClick={() =>
-                        // this.setState({ count: this.state.count + 1 } )
-                        this.setState({ count: 1 })
+                        this.setState({ count: this.state.count + 1 })
                     }
                 >
-                    Update Count
+                    Update counter
                 </button>
             </div>
         );
     }
 }
+
+// basic of pure component //
+// class App extends PureComponent {
+//     constructor() {
+//         super();
+//         this.state = {
+//             count: 1,
+//         };
+//     }
+//     render() {
+//         console.log("check-re rendering");
+//         return (
+//             <div className="App">
+//                 <h1>Pure Component in React {this.state.count}</h1>
+//                 <button
+//                     onClick={() =>
+//                         // this.setState({ count: this.state.count + 1 } )
+//                         // **pure component rerender when the value is updating //
+//                         this.setState({ count: 1 })
+//                     }
+//                 >
+//                     Update Count
+//                 </button>
+//             </div>
+//         );
+//     }
+// }
 
 // sending data from child to parent with the lifting up state //
 // function App() {
