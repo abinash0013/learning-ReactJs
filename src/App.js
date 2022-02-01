@@ -5,6 +5,7 @@ import React, {
     useEffect,
     useState,
     useMemo,
+    createRef,
 } from "react";
 // import { Button, Table } from "react-bootstrap";
 // import logo from "./logo.svg";
@@ -17,41 +18,66 @@ import User from "./User";
 // import Student from "./Student";
 // import style from "./Modular.module.css";
 
-// use memo in functional component //
-function App() {
-    const [count, setCount] = useState(0);
-    const [item, setItem] = useState(10);
-
-    const multiCountMemo = useMemo(
-        function multiCount() {
-            console.log("multicount");
-            return count * 5;
-        },
-        [count]
-    );
-    return (
-        <div className="App">
-            <h1>useMemo Hook in functional component</h1>
-            <h2>{count}</h2>
-            <h2>{item}</h2>
-            <h2>{multiCountMemo}</h2>
-            <button
-                onClick={() => {
-                    setCount(count + 1);
-                }}
-            >
-                Update count
-            </button>
-            <button
-                onClick={() => {
-                    setItem(item * 10);
-                }}
-            >
-                Update item
-            </button>
-        </div>
-    );
+// ref in class component //
+class App extends Component {
+    constructor() {
+        super();
+        this.inputRef = createRef();
+    }
+    componentDidMount() {
+        // we can directly menuplate by using the ref
+        // console.log((this.inputRef.current.value = "1000"));
+    }
+    getValue() {
+        console.log(this.inputRef.current.value);
+        this.inputRef.current.style.color = "red";
+    }
+    render() {
+        return (
+            <div className="App">
+                <h1>Ref in class component</h1>
+                <input type="text" ref={this.inputRef} />
+                <button onClick={() => this.getValue()}> Check Ref</button>
+            </div>
+        );
+    }
 }
+
+// use memo in functional component //
+// function App() {
+//     const [count, setCount] = useState(0);
+//     const [item, setItem] = useState(10);
+
+//     const multiCountMemo = useMemo(
+//         function multiCount() {
+//             console.log("multicount");
+//             return count * 5;
+//         },
+//         [count]
+//     );
+//     return (
+//         <div className="App">
+//             <h1>useMemo Hook in functional component</h1>
+//             <h2>{count}</h2>
+//             <h2>{item}</h2>
+//             <h2>{multiCountMemo}</h2>
+//             <button
+//                 onClick={() => {
+//                     setCount(count + 1);
+//                 }}
+//             >
+//                 Update count
+//             </button>
+//             <button
+//                 onClick={() => {
+//                     setItem(item * 10);
+//                 }}
+//             >
+//                 Update item
+//             </button>
+//         </div>
+//     );
+// }
 
 // PureComponent with other component //
 // *** pure component is only used by class component //
