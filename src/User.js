@@ -1,14 +1,25 @@
 // import React, { Component, useEffect } from "react";
 
-//lifting up state //
-function User(p) {
+// sending data from child to parent with the lifting up state //
+function User(props) {
+    const data = "abinash name in user file or component";
     return (
         <div>
-            <h2>User Name : {p.name}</h2>
-            <button>Click Me</button>
+            <h2>lifting up state</h2>
+            <button onClick={() => props.qqqq(data)}>Click Me</button>
         </div>
     );
 }
+
+// sending data from parent to child with lifting up state //
+// function User(p) {
+//     return (
+//         <div>
+//             <h2>User Name : {p.name}</h2>
+//             <button>Click Me</button>
+//         </div>
+//     );
+// }
 
 // Reuse Component in loop //
 // function User(props) {

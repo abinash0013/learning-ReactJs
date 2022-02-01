@@ -10,16 +10,28 @@ import User from "./User";
 // import Student from "./Student";
 // import style from "./Modular.module.css";
 
-// Listing up state in react //
+// sending data from child to parent with the lifting up state //
 function App() {
-    const data = "abinash";
+    function parentAlert(data) {
+        alert(data);
+    }
     return (
         <div className="App">
-            <h1>Lifting up State</h1>
-            <User name={data} />
+            <User qqqq={parentAlert} />
         </div>
     );
 }
+
+// sending data from parent to child with lifting up state //
+// function App() {
+//     const data = "abinash";
+//     return (
+//         <div className="App">
+//             <h1>Lifting up State</h1>
+//             <User name={data} />
+//         </div>
+//     );
+// }
 
 // using fragment in child component //
 // function App() {
