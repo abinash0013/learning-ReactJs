@@ -1,16 +1,26 @@
-import React, { Component, useEffect } from "react";
+// import React, { Component, useEffect } from "react";
 
-// Reuse Component in loop //
-function User(props) {
+//lifting up state //
+function User(p) {
     return (
         <div>
-            <span>User {props.data.name}</span>
-            <span>User {props.data.email}</span>
-            <span>User {props.data.contact}</span>
+            <h2>User Name : {p.name}</h2>
+            <button>Click Me</button>
         </div>
     );
-    // return <h1>User Component {props.data.name}</h1>;
 }
+
+// Reuse Component in loop //
+// function User(props) {
+//     return (
+//         <div>
+//             <span>User {props.data.name}</span>
+//             <span>User {props.data.email}</span>
+//             <span>User {props.data.contact}</span>
+//         </div>
+//     );
+//     // return <h1>User Component {props.data.name}</h1>;
+// }
 
 // useEffect in functional component //
 // function User(props) {
