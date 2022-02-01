@@ -6,6 +6,7 @@ import React, {
     useState,
     useMemo,
     createRef,
+    useRef,
 } from "react";
 // import { Button, Table } from "react-bootstrap";
 // import logo from "./logo.svg";
@@ -18,30 +19,48 @@ import User from "./User";
 // import Student from "./Student";
 // import style from "./Modular.module.css";
 
-// ref in class component //
-class App extends Component {
-    constructor() {
-        super();
-        this.inputRef = createRef();
+// ref in functional component with useRef //
+function App() {
+    const inputRef = useRef(null);
+    function handleInput() {
+        console.log("handle input in function");
+        // inputRef.current.value = "100";
+        // inputRef.current.style.backgroundColor = "red";
+        inputRef.current.style.color = "red";
     }
-    componentDidMount() {
-        // we can directly menuplate by using the ref
-        // console.log((this.inputRef.current.value = "1000"));
-    }
-    getValue() {
-        console.log(this.inputRef.current.value);
-        this.inputRef.current.style.color = "red";
-    }
-    render() {
-        return (
-            <div className="App">
-                <h1>Ref in class component</h1>
-                <input type="text" ref={this.inputRef} />
-                <button onClick={() => this.getValue()}> Check Ref</button>
-            </div>
-        );
-    }
+    return (
+        <div className="App">
+            <h1>useRef in functional component</h1>
+            <input type="text" ref={inputRef} />
+            <button onClick={handleInput}>Handle Input</button>
+        </div>
+    );
 }
+
+// ref in class component //
+// class App extends Component {
+//     constructor() {
+//         super();
+//         this.inputRef = createRef();
+//     }
+//     componentDidMount() {
+//         // we can directly menuplate by using the ref
+//         // console.log((this.inputRef.current.value = "1000"));
+//     }
+//     getValue() {
+//         console.log(this.inputRef.current.value);
+//         this.inputRef.current.style.color = "red";
+//     }
+//     render() {
+//         return (
+//             <div className="App">
+//                 <h1>Ref in class component</h1>
+//                 <input type="text" ref={this.inputRef} />
+//                 <button onClick={() => this.getValue()}> Check Ref</button>
+//             </div>
+//         );
+//     }
+// }
 
 // use memo in functional component //
 // function App() {
