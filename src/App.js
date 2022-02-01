@@ -2,22 +2,40 @@ import React, { Component, Fragment, useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import logo from "./logo.svg";
 import "./App.css";
+import Cols from "./Cols";
 // import "./Style.css";
-import User from "./User";
+// import User from "./User";
 // import Login from "./Login";
 // import Profile from "./Profile";
 // import Student from "./Student";
 // import style from "./Modular.module.css";
 
-// fragment in react using 2st way //
+// using fragment in child component //
 function App() {
     return (
         <>
-            <h1>React fragment</h1>
-            <h1>React fragment</h1>
+            <h1>React Fragment</h1>
+            <table>
+                <tbody>
+                    <tr>
+                        <Cols />
+                    </tr>
+                </tbody>
+            </table>
         </>
     );
 }
+
+// fragment in react using 2st way //
+// function App() {
+//     return (
+//         <>
+//             <h1>React fragment</h1>
+//             <h1>React fragment</h1>
+//         </>
+//     );
+// }
+
 // fragment in react using 2st way //
 // function App() {
 //     return (
