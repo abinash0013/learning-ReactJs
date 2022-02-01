@@ -1,26 +1,60 @@
-import React, { Component, Fragment, useEffect, useState } from "react";
-import { Button, Table } from "react-bootstrap";
-import logo from "./logo.svg";
+import React, {
+    Component,
+    Fragment,
+    PureComponent,
+    useEffect,
+    useState,
+} from "react";
+// import { Button, Table } from "react-bootstrap";
+// import logo from "./logo.svg";
 import "./App.css";
 // import Cols from "./Cols";
 // import "./Style.css";
-import User from "./User";
 // import Login from "./Login";
 // import Profile from "./Profile";
 // import Student from "./Student";
 // import style from "./Modular.module.css";
 
-// sending data from child to parent with the lifting up state //
-function App() {
-    function parentAlert(data) {
-        alert(data);
+// pure component using class component //
+// *** functional component use memo as pure component //
+// *** pure component stop the rerendering of the component//
+
+class App extends PureComponent {
+    constructor() {
+        super();
+        this.state = {
+            count: 1,
+        };
     }
-    return (
-        <div className="App">
-            <User qqqq={parentAlert} />
-        </div>
-    );
+    render() {
+        console.log("check-re rendering");
+        return (
+            <div className="App">
+                <h1>Pure Component in React {this.state.count}</h1>
+                <button
+                    onClick={() =>
+                        // this.setState({ count: this.state.count + 1 } )
+                        this.setState({ count: 1 })
+                    }
+                >
+                    Update Count
+                </button>
+            </div>
+        );
+    }
 }
+
+// sending data from child to parent with the lifting up state //
+// function App() {
+//     function parentAlert(data) {
+//         alert(data);
+//     }
+//     return (
+//         <div className="App">
+//             <User qqqq={parentAlert} />
+//         </div>
+//     );
+// }
 
 // sending data from parent to child with lifting up state //
 // function App() {
