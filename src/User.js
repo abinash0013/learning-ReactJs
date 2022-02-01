@@ -1,20 +1,32 @@
 import React, { Component, useEffect } from "react";
 
-// useEffect in functional component //
+// Reuse Component in loop //
 function User(props) {
-    useEffect(() => {
-        console.log("useEffect count");
-    }, [props.count]);
-    useEffect(() => {
-        console.log("useEffect data");
-    }, [props.data]);
     return (
-        <div className="App">
-            <h1>Count Props: {props.count}</h1>
-            <h1>Count Props: {props.data}</h1>
+        <div>
+            <span>User {props.data.name}</span>
+            <span>User {props.data.email}</span>
+            <span>User {props.data.contact}</span>
         </div>
     );
+    // return <h1>User Component {props.data.name}</h1>;
 }
+
+// useEffect in functional component //
+// function User(props) {
+//     useEffect(() => {
+//         console.log("useEffect count");
+//     }, [props.count]);
+//     useEffect(() => {
+//         console.log("useEffect data");
+//     }, [props.data]);
+//     return (
+//         <div className="App">
+//             <h1>Count Props: {props.count}</h1>
+//             <h1>Count Props: {props.data}</h1>
+//         </div>
+//     );
+// }
 
 // render using state in class component //
 // class User extends Component {

@@ -3,45 +3,63 @@ import { Button, Table } from "react-bootstrap";
 import logo from "./logo.svg";
 import "./App.css";
 // import "./Style.css";
-// import User from "./User";
+import User from "./User";
 // import Login from "./Login";
 // import Profile from "./Profile";
 // import Student from "./Student";
-import style from "./Modular.module.css";
+// import style from "./Modular.module.css";
 
-// map function //
 function App() {
-    // const StudentName = ["Abinash", "kartik", "alok", "satyen"];
-    const StudentName = [
-        { name: "Abinash", email: "Abinash@gmail.com", phone: 12367890 },
-        { name: "kartik", email: "kartik@gmail.com", phone: 234678901 },
-        { name: "alok", email: "alok@gmail.com", phone: 346789012 },
-        { name: "satyen", email: "satyen@gmail.com", phone: 4567890123 },
+    const users = [
+        { name: "Abinash", email: "abinash@gmail.com", contact: "123" },
+        { name: "Alok", email: "alok@gmail.com", contact: "234" },
+        { name: "Anjan", email: "anjan@gmail.com", contact: "345" },
     ];
     return (
         <div className="App">
-            <h1>Handle Array from the list</h1>
-            <Table striped bordered hover>
-                <tbody>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                    </tr>
-                    {StudentName.map((data, i) =>
-                        data.phone === 12367890 ? (
-                            <tr key={i}>
-                                <td>{data.name}</td>
-                                <td>{data.email}</td>
-                                <td>{data.phone}</td>
-                            </tr>
-                        ) : null
-                    )}
-                </tbody>
-            </Table>
+            <h1>Reuse Component in loop</h1>
+            {users.map((item, i) => (
+                <User data={item} />
+            ))}
         </div>
     );
 }
+
+// map function //
+// function App() {
+//     // array
+//     // const StudentName = ["Abinash", "kartik", "alok", "satyen"];
+//     // array of array
+//     const StudentName = [
+//         { name: "Abinash", email: "Abinash@gmail.com", phone: 12367890 },
+//         { name: "kartik", email: "kartik@gmail.com", phone: 234678901 },
+//         { name: "alok", email: "alok@gmail.com", phone: 346789012 },
+//         { name: "satyen", email: "satyen@gmail.com", phone: 4567890123 },
+//     ];
+//     return (
+//         <div className="App">
+//             <h1>Handle Array from the list</h1>
+//             <Table striped bordered hover>
+//                 <tbody>
+//                     <tr>
+//                         <th>Name</th>
+//                         <th>Email</th>
+//                         <th>Phone</th>
+//                     </tr>
+//                     {StudentName.map((data, i) =>
+//                         data.phone === 12367890 ? (
+//                             <tr key={i}>
+//                                 <td>{data.name}</td>
+//                                 <td>{data.email}</td>
+//                                 <td>{data.phone}</td>
+//                             </tr>
+//                         ) : null
+//                     )}
+//                 </tbody>
+//             </Table>
+//         </div>
+//     );
+// }
 
 // work on button using react
 // function App() {
