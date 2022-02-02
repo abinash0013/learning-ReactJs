@@ -19,23 +19,38 @@ import User from "./User";
 // import Student from "./Student";
 // import style from "./Modular.module.css";
 
-// ref in functional component with useRef //
+// forword ref in functional component //
 function App() {
-    const inputRef = useRef(null);
-    function handleInput() {
-        console.log("handle input in function");
-        // inputRef.current.value = "100";
-        // inputRef.current.style.backgroundColor = "red";
-        inputRef.current.style.color = "red";
+    let inputRef = useRef(null);
+    function updateInput() {
+        inputRef.current.value = "100";
     }
     return (
         <div className="App">
-            <h1>useRef in functional component</h1>
-            <input type="text" ref={inputRef} />
-            <button onClick={handleInput}>Handle Input</button>
+            <h1>Forward Ref in fnctional component</h1>
+            <User ref={inputRef} />
+            <button onClick={updateInput}>Update Input Box</button>
         </div>
     );
 }
+
+// ref in functional component with useRef //
+// function App() {
+//     const inputRef = useRef(null);
+//     function handleInput() {
+//         console.log("handle input in function");
+//         // inputRef.current.value = "100";
+//         // inputRef.current.style.backgroundColor = "red";
+//         inputRef.current.style.color = "red";
+//     }
+//     return (
+//         <div className="App">
+//             <h1>useRef in functional component</h1>
+//             <input type="text" ref={inputRef} />
+//             <button onClick={handleInput}>Handle Input</button>
+//         </div>
+//     );
+// }
 
 // ref in class component //
 // class App extends Component {

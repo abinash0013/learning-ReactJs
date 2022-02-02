@@ -1,16 +1,24 @@
-import React, { Component, useEffect, PureComponent } from "react";
+import React, { Component, useEffect, PureComponent, forwardRef } from "react";
+
+function User(p, inputRef) {
+    return (
+        <div className="App">
+            <input type="text" ref={inputRef} />
+        </div>
+    );
+}
 
 // PureComponent with other component //
-class User extends PureComponent {
-    render() {
-        console.warn("user child component render");
-        return (
-            <div className="App">
-                <h1>User Component</h1>
-            </div>
-        );
-    }
-}
+// class User extends PureComponent {
+//     render() {
+//         console.warn("user child component render");
+//         return (
+//             <div className="App">
+//                 <h1>User Component</h1>
+//             </div>
+//         );
+//     }
+// }
 
 // Reuse Component in loop //
 // function User(props) {
@@ -93,4 +101,4 @@ class User extends PureComponent {
 //     }
 // }
 
-export default User;
+export default forwardRef(User);
