@@ -19,20 +19,47 @@ import "./App.css";
 // import Student from "./Student";
 // import style from "./Modular.module.css";
 
-// controlled component //
+// uncontroll componet //
 function App() {
-    let [val, setVal] = useState();
+    const inputRefOne = useRef(null);
+    const inputRefTwo = useRef(null);
+
+    function submitForm(e) {
+        e.preventDefault();
+        console.log("input field one value", inputRefOne.current.value);
+        console.log("input field two value", inputRefTwo.current.value);
+    }
     return (
         <div className="App">
-            <h1>Controlled Component</h1>
-            <input
-                type="text"
-                value={val}
-                onChange={(e) => setVal(e.target.value)}
-            />
+            <h1>Uncontrolled component</h1>
+            <form onSubmit={submitForm}>
+                <input type="text" ref={inputRefOne} />
+                <br />
+                <br />
+                <input type="text" ref={inputRefTwo} />
+                <br />
+                <br />
+                <input type="submit" value="Submit" />
+                <br />
+                <br />
+            </form>
         </div>
     );
 }
+// controlled component //
+// function App() {
+//     let [val, setVal] = useState();
+//     return (
+//         <div className="App">
+//             <h1>Controlled Component</h1>
+//             <input
+//                 type="text"
+//                 value={val}
+//                 onChange={(e) => setVal(e.target.value)}
+//             />
+//         </div>
+//     );
+// }
 
 // forward ref in functional component //
 // function App() {
