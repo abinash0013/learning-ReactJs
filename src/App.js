@@ -8,6 +8,13 @@ import React, {
     createRef,
     useRef,
 } from "react";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    Routes,
+} from "react-router-dom";
 // import { Button, Table } from "react-bootstrap";
 // import logo from "./logo.svg";
 import "./App.css";
@@ -19,31 +26,67 @@ import "./App.css";
 // import Student from "./Student";
 // import style from "./Modular.module.css";
 
-// Using HOC
+// Routing in React Component //
 function App() {
     return (
         <div className="App">
-            <h1>HOC</h1>
-            <HOCRed cmp={Counter} />
+            <Router>
+                <h1>Routing Setup</h1>
+                <Link to="/home">Home Page</Link>
+                <br />
+                <Link to="/about">About Page</Link>
+                <Routes>
+                    <Route path="home" element={<Home />} />
+                </Routes>
+
+                <Routes>
+                    <Route path="about" element={<About />} />
+                </Routes>
+            </Router>
         </div>
     );
 }
-function HOCRed(props) {
-    return (
-        <h2 style={{ backgroundColor: "red" }}>
-            <props.cmp />
-        </h2>
-    );
-}
-function Counter() {
-    const [count, setCount] = useState(0);
+
+function Home() {
     return (
         <div>
-            <h3>{count}</h3>
-            <button onClick={() => setCount(count + 1)}>Update</button>
+            <h1>Home page</h1>
         </div>
     );
 }
+function About() {
+    return (
+        <div>
+            <h1>About page</h1>
+        </div>
+    );
+}
+
+// Using HOC
+// function App() {
+//     return (
+//         <div className="App">
+//             <h1>HOC</h1>
+//             <HOCRed cmp={Counter} />
+//         </div>
+//     );
+// }
+// function HOCRed(props) {
+//     return (
+//         <h2 style={{ backgroundColor: "red" }}>
+//             <props.cmp />
+//         </h2>
+//     );
+// }
+// function Counter() {
+//     const [count, setCount] = useState(0);
+//     return (
+//         <div>
+//             <h3>{count}</h3>
+//             <button onClick={() => setCount(count + 1)}>Update</button>
+//         </div>
+//     );
+// }
 
 // uncontroll componet //
 // function App() {
