@@ -19,33 +19,59 @@ import "./App.css";
 // import Student from "./Student";
 // import style from "./Modular.module.css";
 
-// uncontroll componet //
+// Using HOC
 function App() {
-    const inputRefOne = useRef(null);
-    const inputRefTwo = useRef(null);
-
-    function submitForm(e) {
-        e.preventDefault();
-        console.log("input field one value", inputRefOne.current.value);
-        console.log("input field two value", inputRefTwo.current.value);
-    }
     return (
         <div className="App">
-            <h1>Uncontrolled component</h1>
-            <form onSubmit={submitForm}>
-                <input type="text" ref={inputRefOne} />
-                <br />
-                <br />
-                <input type="text" ref={inputRefTwo} />
-                <br />
-                <br />
-                <input type="submit" value="Submit" />
-                <br />
-                <br />
-            </form>
+            <h1>HOC</h1>
+            <HOCRed cmp={Counter} />
         </div>
     );
 }
+function HOCRed(props) {
+    return (
+        <h2 style={{ backgroundColor: "red" }}>
+            <props.cmp />
+        </h2>
+    );
+}
+function Counter() {
+    const [count, setCount] = useState(0);
+    return (
+        <div>
+            <h3>{count}</h3>
+            <button onClick={() => setCount(count + 1)}>Update</button>
+        </div>
+    );
+}
+
+// uncontroll componet //
+// function App() {
+//     const inputRefOne = useRef(null);
+//     const inputRefTwo = useRef(null);
+
+//     function submitForm(e) {
+//         e.preventDefault();
+//         console.log("input field one value", inputRefOne.current.value);
+//         console.log("input field two value", inputRefTwo.current.value);
+//     }
+//     return (
+//         <div className="App">
+//             <h1>Uncontrolled component</h1>
+//             <form onSubmit={submitForm}>
+//                 <input type="text" ref={inputRefOne} />
+//                 <br />
+//                 <br />
+//                 <input type="text" ref={inputRefTwo} />
+//                 <br />
+//                 <br />
+//                 <input type="submit" value="Submit" />
+//                 <br />
+//                 <br />
+//             </form>
+//         </div>
+//     );
+// }
 // controlled component //
 // function App() {
 //     let [val, setVal] = useState();
