@@ -25,42 +25,62 @@ import "./App.css";
 // import Profile from "./Profile";
 // import Student from "./Student";
 // import style from "./Modular.module.css";
+import Nav from "./Nav";
+import Home from "./Home";
+import About from "./About";
+import Services from "./Services";
+import Contact from "./Contact";
 
-// Routing in React Component //
+// recommended way to use react router //
 function App() {
     return (
         <div className="App">
-            <Router>
-                <h1>Routing Setup</h1>
-                <Link to="/home">Home Page</Link>
-                <br />
-                <Link to="/about">About Page</Link>
-                <Routes>
-                    <Route path="home" element={<Home />} />
-                </Routes>
-
-                <Routes>
-                    <Route path="about" element={<About />} />
-                </Routes>
-            </Router>
+            <Nav />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/contact" element={<Contact />} />
+            </Routes>
         </div>
     );
 }
 
-function Home() {
-    return (
-        <div>
-            <h1>Home page</h1>
-        </div>
-    );
-}
-function About() {
-    return (
-        <div>
-            <h1>About page</h1>
-        </div>
-    );
-}
+// Routing in React Component //
+// function App() {
+//     return (
+//         <div className="App">
+//             <Router>
+//                 <h1>Routing Setup</h1>
+//                 <Link to="/home">Home Page</Link>
+//                 <br />
+//                 <Link to="/about">About Page</Link>
+//                 <Routes>
+//                     <Route path="home" element={<Home />} />
+//                 </Routes>
+
+//                 <Routes>
+//                     <Route path="about" element={<About />} />
+//                 </Routes>
+//             </Router>
+//         </div>
+//     );
+// }
+
+// function Home() {
+//     return (
+//         <div>
+//             <h1>Home page</h1>
+//         </div>
+//     );
+// }
+// function About() {
+//     return (
+//         <div>
+//             <h1>About page</h1>
+//         </div>
+//     );
+// }
 
 // Using HOC
 // function App() {
