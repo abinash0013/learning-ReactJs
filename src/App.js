@@ -25,26 +25,81 @@ import "./App.css";
 // import Profile from "./Profile";
 // import Student from "./Student";
 // import style from "./Modular.module.css";
-import Nav from "./Nav";
-import Home from "./Home";
-import About from "./About";
-import Services from "./Services";
-import Contact from "./Contact";
+// import Nav from "./Nav";
+// import Home from "./Home";
+// import About from "./About";
+// import Services from "./Services";
+// import Contact from "./Contact";
 
-// recommended way to use react router //
+// 404 page using routing in react //
 function App() {
     return (
         <div className="App">
-            <Nav />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/contact" element={<Contact />} />
-            </Routes>
+            <Router>
+                <Link to="/">Home</Link>
+                <br />
+                <Link to="/about">About</Link>
+                <br />
+                <Link to="/services">Services</Link>
+                <Routes>
+                    <Route path="/" exact={true} element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/services" element={<Services />} />
+                    <Route path="*" element={<pageNotFound />} />
+                </Routes>
+            </Router>
         </div>
     );
 }
+
+function Home() {
+    return (
+        <div>
+            <h1>Home Page</h1>
+            <p>This is Home page</p>
+        </div>
+    );
+}
+
+function About() {
+    return (
+        <div>
+            <h1>About Page</h1>
+            <p>This is About page</p>
+        </div>
+    );
+}
+function Services() {
+    return (
+        <div>
+            <h1>Services Page</h1>
+            <p>This is Services page</p>
+        </div>
+    );
+}
+function pageNotFound() {
+    return (
+        <div>
+            <h1>404 Page</h1>
+            <p>Page Not Found</p>
+        </div>
+    );
+}
+
+// recommended way to use react router //
+// function App() {
+//     return (
+//         <div className="App">
+//             <Nav />
+//             <Routes>
+//                 <Route path="/" element={<Home />} />
+//                 <Route path="/about" element={<About />} />
+//                 <Route path="/services" element={<Services />} />
+//                 <Route path="/contact" element={<Contact />} />
+//             </Routes>
+//         </div>
+//     );
+// }
 
 // Routing in React Component //
 // function App() {
