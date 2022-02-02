@@ -1,12 +1,13 @@
 import React, { Component, useEffect, PureComponent, forwardRef } from "react";
 
-function User(p, inputRef) {
-    return (
-        <div className="App">
-            <input type="text" ref={inputRef} />
-        </div>
-    );
-}
+// forward ref //
+// function User(p, inputRef) {
+//     return (
+//         <div className="App">
+//             <input type="text" ref={inputRef} />
+//         </div>
+//     );
+// }
 
 // PureComponent with other component //
 // class User extends PureComponent {
@@ -101,4 +102,6 @@ function User(p, inputRef) {
 //     }
 // }
 
-export default forwardRef(User);
+// export default forwardRef(User);
+// export default User;
+//

@@ -14,25 +14,40 @@ import "./App.css";
 // import Cols from "./Cols";
 // import "./Style.css";
 // import Login from "./Login";
-import User from "./User";
+// import User from "./User";
 // import Profile from "./Profile";
 // import Student from "./Student";
 // import style from "./Modular.module.css";
 
-// forword ref in functional component //
+// controlled component //
 function App() {
-    let inputRef = useRef(null);
-    function updateInput() {
-        inputRef.current.value = "100";
-    }
+    let [val, setVal] = useState();
     return (
         <div className="App">
-            <h1>Forward Ref in fnctional component</h1>
-            <User ref={inputRef} />
-            <button onClick={updateInput}>Update Input Box</button>
+            <h1>Controlled Component</h1>
+            <input
+                type="text"
+                value={val}
+                onChange={(e) => setVal(e.target.value)}
+            />
         </div>
     );
 }
+
+// forward ref in functional component //
+// function App() {
+//     let inputRef = useRef(null);
+//     function updateInput() {
+//         inputRef.current.value = "100";
+//     }
+//     return (
+//         <div className="App">
+//             <h1>Forward Ref in fnctional component</h1>
+//             <User ref={inputRef} />
+//             <button onClick={updateInput}>Update Input Box</button>
+//         </div>
+//     );
+// }
 
 // ref in functional component with useRef //
 // function App() {
