@@ -31,64 +31,121 @@ import User from "./User";
 // import Services from "./Services";
 // import Contact from "./Contact";
 
-// Using Post API //
+// Using fetch API //
 function App() {
-    const [userId, setUserId] = useState("");
-    const [title, setTitle] = useState("");
-    const [body, setBody] = useState("");
-    function saveUser() {
-        // console.log({ userId, title, body });
-        let data = { userId, title, body };
-        fetch("https://jsonplaceholder.typicode.com/posts", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        }).then((result) => {
-            // console.log("result", result);
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        getList();
+    }, []);
+    console.log(data);
+    function getList() {
+        fetch("https://jsonplaceholder.typicode.com/posts").then((result) => {
             result.json().then((resp) => {
-                console.log("resp", resp);
+                // console.log("result", resp);
+                setData(resp);
+            });
+        });
+    }
+    function deleteUser(id) {
+        // alert(id);
+        // console.log(id);
+        fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+            method: "DELETE",
+        }).then((result) => {
+            result.json().then((resp) => {
+                console.log(resp);
+                getList();
             });
         });
     }
     return (
         <div className="App">
-            <h1>Post API Example</h1>
-            <input
-                type="text"
-                value={userId}
-                onChange={(e) => {
-                    setUserId(e.target.value);
-                }}
-                name="userId"
-            />
-            <br /> <br />
-            <input
-                type="text"
-                value={title}
-                onChange={(e) => {
-                    setTitle(e.target.value);
-                }}
-                name="title"
-            />
-            <br /> <br />
-            <input
-                type="text"
-                value={body}
-                onChange={(e) => {
-                    setBody(e.target.value);
-                }}
-                name="body"
-            />
-            <br /> <br />
-            <Button type="button" onClick={saveUser}>
-                Save
-            </Button>
+            <h1>Get API Call</h1>
+            <Table>
+                <tbody>
+                    <tr>
+                        <td>Id</td>
+                        <td>Title</td>
+                        <td>Body</td>
+                        <td>Action</td>
+                    </tr>
+                    {data.map((item) => (
+                        <tr>
+                            <td>{item.id}</td>
+                            <td>{item.title}</td>
+                            <td>{item.body}</td>
+                            <td>
+                                <button onClick={() => deleteUser(item.id)}>
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </Table>
         </div>
     );
 }
+
+// Using Post API //
+// function App() {
+//     const [userId, setUserId] = useState("");
+//     const [title, setTitle] = useState("");
+//     const [body, setBody] = useState("");
+//     function saveUser() {
+//         // console.log({ userId, title, body });
+//         let data = { userId, title, body };
+//         fetch("https://jsonplaceholder.typicode.com/posts", {
+//             method: "POST",
+//             headers: {
+//                 Accept: "application/json",
+//                 "Content-Type": "application/json",
+//             },
+//             body: JSON.stringify(data),
+//         }).then((result) => {
+//             // console.log("result", result);
+//             result.json().then((resp) => {
+//                 console.log("resp", resp);
+//             });
+//         });
+//     }
+//     return (
+//         <div className="App">
+//             <h1>Post API Example</h1>
+//             <input
+//                 type="text"
+//                 value={userId}
+//                 onChange={(e) => {
+//                     setUserId(e.target.value);
+//                 }}
+//                 name="userId"
+//             />
+//             <br /> <br />
+//             <input
+//                 type="text"
+//                 value={title}
+//                 onChange={(e) => {
+//                     setTitle(e.target.value);
+//                 }}
+//                 name="title"
+//             />
+//             <br /> <br />
+//             <input
+//                 type="text"
+//                 value={body}
+//                 onChange={(e) => {
+//                     setBody(e.target.value);
+//                 }}
+//                 name="body"
+//             />
+//             <br /> <br />
+//             <Button type="button" onClick={saveUser}>
+//                 Save
+//             </Button>
+//         </div>
+//     );
+// }
+
 // Using fetch API //
 // function App() {
 //     const [data, setData] = useState([]);
