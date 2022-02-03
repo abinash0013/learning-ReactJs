@@ -31,119 +31,142 @@ import User from "./User";
 // import Services from "./Services";
 // import Contact from "./Contact";
 
-// update form data
+// previous state with functional component //
 function App() {
-    const [data, setData] = useState([]);
-    const [userId, setUserId] = useState("");
-    const [title, setTitle] = useState("");
-    const [body, setBody] = useState("");
-    const [id, setId] = useState("");
-    useEffect(() => {
-        getList();
-    }, []);
-    console.log(data);
-    function getList() {
-        fetch("https://jsonplaceholder.typicode.com/posts").then((result) => {
-            result.json().then((resp) => {
-                // console.log("result", resp);
-                setData(resp);
-                setUserId(resp[0].userId);
-                setTitle(resp[0].title);
-                setBody(resp[0].body);
-                setId(resp[0].id);
-            });
-        });
-    }
-    function deleteUser(id) {
-        // alert(id);
-        // console.log(id);
-        fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-            method: "DELETE",
-        }).then((result) => {
-            result.json().then((resp) => {
-                console.log(resp);
-                getList();
-            });
-        });
-    }
-    function updateUser(id) {
-        console.log(data[id - 1]);
-        let item = data[id - 1];
-        setUserId(item.userId);
-        setTitle(item.title);
-        setBody(item.body);
-        setId(item.id);
-    }
-    function updateCurrentUser() {
-        let item = { userId, title, body, id };
-        fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-            method: "PUT",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(item),
-        }).then((result) => {
-            result.json().then((resp) => {
-                console.log(resp);
-                getList();
-            });
+    const [count, setCount] = useState(1);
+    function updateCounter() {
+        // setCount(count + 1);
+        // generate random number
+        let rand = Math.floor(Math.random() * 10);
+        setCount((preVal) => {
+            console.log(preVal);
+            if (preVal < 5) {
+                alert("low value");
+            }
+            return rand;
         });
     }
     return (
         <div className="App">
-            <h1>Get API Call</h1>
-            <Table>
-                <tbody>
-                    <tr>
-                        <td>Id</td>
-                        <td>Title</td>
-                        <td>Body</td>
-                        <td>Action</td>
-                    </tr>
-                    {data.map((item) => (
-                        <tr>
-                            <td>{item.id}</td>
-                            <td>{item.title}</td>
-                            <td>{item.body}</td>
-                            <td>
-                                <button onClick={() => deleteUser(item.id)}>
-                                    Delete
-                                </button>
-                            </td>
-                            <td>
-                                <button onClick={() => updateUser(item.id)}>
-                                    Update
-                                </button>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </Table>
-            <div>
-                <input
-                    type="text"
-                    value={userId}
-                    onChange={(e) => setUserId(e.target.value)}
-                />
-                <br />
-                <input
-                    type="text"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                />
-                <br />
-                <input
-                    type="text"
-                    value={body}
-                    onChange={(e) => setBody(e.target.value)}
-                />
-                <br />
-                <button onClick={updateCurrentUser}>Update User</button>
-            </div>
+            <h1>{count}</h1>
+            <button onClick={updateCounter}>Click Me to Update Counter</button>
         </div>
     );
 }
+
+// update form data
+// function App() {
+//     const [data, setData] = useState([]);
+//     const [userId, setUserId] = useState("");
+//     const [title, setTitle] = useState("");
+//     const [body, setBody] = useState("");
+//     const [id, setId] = useState("");
+//     useEffect(() => {
+//         getList();
+//     }, []);
+//     console.log(data);
+//     function getList() {
+//         fetch("https://jsonplaceholder.typicode.com/posts").then((result) => {
+//             result.json().then((resp) => {
+//                 // console.log("result", resp);
+//                 setData(resp);
+//                 setUserId(resp[0].userId);
+//                 setTitle(resp[0].title);
+//                 setBody(resp[0].body);
+//                 setId(resp[0].id);
+//             });
+//         });
+//     }
+//     function deleteUser(id) {
+//         // alert(id);
+//         // console.log(id);
+//         fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+//             method: "DELETE",
+//         }).then((result) => {
+//             result.json().then((resp) => {
+//                 console.log(resp);
+//                 getList();
+//             });
+//         });
+//     }
+//     function updateUser(id) {
+//         console.log(data[id - 1]);
+//         let item = data[id - 1];
+//         setUserId(item.userId);
+//         setTitle(item.title);
+//         setBody(item.body);
+//         setId(item.id);
+//     }
+//     function updateCurrentUser() {
+//         let item = { userId, title, body, id };
+//         fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+//             method: "PUT",
+//             headers: {
+//                 Accept: "application/json",
+//                 "Content-Type": "application/json",
+//             },
+//             body: JSON.stringify(item),
+//         }).then((result) => {
+//             result.json().then((resp) => {
+//                 console.log(resp);
+//                 getList();
+//             });
+//         });
+//     }
+//     return (
+//         <div className="App">
+//             <h1>Get API Call</h1>
+//             <Table>
+//                 <tbody>
+//                     <tr>
+//                         <td>Id</td>
+//                         <td>Title</td>
+//                         <td>Body</td>
+//                         <td>Action</td>
+//                     </tr>
+//                     {data.map((item) => (
+//                         <tr>
+//                             <td>{item.id}</td>
+//                             <td>{item.title}</td>
+//                             <td>{item.body}</td>
+//                             <td>
+//                                 <button onClick={() => deleteUser(item.id)}>
+//                                     Delete
+//                                 </button>
+//                             </td>
+//                             <td>
+//                                 <button onClick={() => updateUser(item.id)}>
+//                                     Update
+//                                 </button>
+//                             </td>
+//                         </tr>
+//                     ))}
+//                 </tbody>
+//             </Table>
+//             <div>
+//                 <input
+//                     type="text"
+//                     value={userId}
+//                     onChange={(e) => setUserId(e.target.value)}
+//                 />
+//                 <br />
+//                 <input
+//                     type="text"
+//                     value={title}
+//                     onChange={(e) => setTitle(e.target.value)}
+//                 />
+//                 <br />
+//                 <input
+//                     type="text"
+//                     value={body}
+//                     onChange={(e) => setBody(e.target.value)}
+//                 />
+//                 <br />
+//                 <button onClick={updateCurrentUser}>Update User</button>
+//             </div>
+//         </div>
+//     );
+// }
 
 // prefilled form
 // function App() {
