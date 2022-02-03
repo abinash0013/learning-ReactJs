@@ -1,4 +1,11 @@
-import React, { Component, useEffect, PureComponent, forwardRef } from "react";
+// import React, { Component, useEffect, PureComponent, forwardRef } from "react";
+// import { withRouter } from "react-router-dom";
+// import { withRouter } from "react-router";
+
+// function User(props) {
+//     console.log(props.match);
+//     return <div>{/* <h1>User Component {props.match.params.id}</h1> */}</div>;
+// }
 
 // forward ref //
 // function User(p, inputRef) {
@@ -103,5 +110,5 @@ import React, { Component, useEffect, PureComponent, forwardRef } from "react";
 // }
 
 // export default forwardRef(User);
-// export default User;
+// export default withRouter(User);
 //

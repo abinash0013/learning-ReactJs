@@ -15,13 +15,13 @@ import {
     Link,
     Routes,
 } from "react-router-dom";
-// import { Button, Table } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 // import logo from "./logo.svg";
 import "./App.css";
 // import Cols from "./Cols";
 // import "./Style.css";
 // import Login from "./Login";
-// import User from "./User";
+import User from "./User";
 // import Profile from "./Profile";
 // import Student from "./Student";
 // import style from "./Modular.module.css";
@@ -31,60 +31,124 @@ import "./App.css";
 // import Services from "./Services";
 // import Contact from "./Contact";
 
-// 404 page using routing in react //
+// Using fetch API //
 function App() {
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        fetch("https://jsonplaceholder.typicode.com/posts").then((result) => {
+            result.json().then((resp) => {
+                // console.log("result", resp);
+                setData(resp);
+            });
+        });
+    }, []);
+    console.log(data);
     return (
         <div className="App">
-            <Router>
-                <Link to="/">Home</Link>
-                <br />
-                <Link to="/about">About</Link>
-                <br />
-                <Link to="/services">Services</Link>
-                <Routes>
-                    <Route path="/" exact={true} element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/services" element={<Services />} />
-                    <Route path="*" element={<pageNotFound />} />
-                </Routes>
-            </Router>
+            <h1>Get API Call</h1>
+            <Table>
+                <tbody>
+                    <tr>
+                        <td>Id</td>
+                        <td>Title</td>
+                        <td>Body</td>
+                    </tr>
+                    {data.map((item) => (
+                        <tr>
+                            <td>{item.id}</td>
+                            <td>{item.title}</td>
+                            <td>{item.body}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </Table>
         </div>
     );
 }
 
-function Home() {
-    return (
-        <div>
-            <h1>Home Page</h1>
-            <p>This is Home page</p>
-        </div>
-    );
-}
+// Dynamic routing in react js //
+// function App() {
+//     let Users = [
+//         { id: 1, name: "Abinash", email: "abinash@gmail.com" },
+//         { id: 2, name: "Alok", email: "alok@gmail.com" },
+//         { id: 3, name: "Ajit", email: "ajit@gmail.com" },
+//         { id: 4, name: "Kartik", email: "kartik@gmail.com" },
+//     ];
+//     return (
+//         <div className="App">
+//             <Router>
+//                 <h1>Dynamic Routing</h1>
+//                 {Users.map((item) => (
+//                     <div>
+//                         <Link to={"/user/" + item.id}>
+//                             <h3>{item.name}</h3>
+//                         </Link>
+//                     </div>
+//                 ))}
+//                 <Routes>
+//                     <Route path="/user/:id" element={<User />} />
+//                 </Routes>
+//             </Router>
+//         </div>
+//     );
+// }
 
-function About() {
-    return (
-        <div>
-            <h1>About Page</h1>
-            <p>This is About page</p>
-        </div>
-    );
-}
-function Services() {
-    return (
-        <div>
-            <h1>Services Page</h1>
-            <p>This is Services page</p>
-        </div>
-    );
-}
-function pageNotFound() {
-    return (
-        <div>
-            <h1>404 Page</h1>
-            <p>Page Not Found</p>
-        </div>
-    );
-}
+// 404 page using routing in react //
+// function App() {
+//     return (
+//         <div className="App">
+//             <Router>
+//                 <Link to="/">Home</Link>
+//                 <br />
+//                 <Link to="/about">About</Link>
+//                 <br />
+//                 <Link to="/services">Services</Link>
+//                 <Routes>
+//                     <Route path="/" exact={true} element={<Home />} />
+//                     <Route path="/about" element={<About />} />
+//                     <Route path="/services" element={<Services />} />
+//                     <Route path="*" element={<pageNotFound />} />
+//                 </Routes>
+//             </Router>
+//         </div>
+//     );
+// }
+
+// function Home() {
+//     return (
+//         <div>
+//             <h1>Home Page</h1>
+//             <p>This is Home page</p>
+//         </div>
+//     );
+// }
+
+// function About() {
+//     return (
+//         <div>
+//             <h1>About Page</h1>
+//             <p>This is About page</p>
+//         </div>
+//     );
+// }
+
+// function Services() {
+//     return (
+//         <div>
+//             <h1>Services Page</h1>
+//             <p>This is Services page</p>
+//         </div>
+//     );
+// }
+
+// function pageNotFound() {
+//     return (
+//         <div>
+//             <h1>404 Page</h1>
+//             <p>Page Not Found</p>
+//         </div>
+//     );
+// }
 
 // recommended way to use react router //
 // function App() {
