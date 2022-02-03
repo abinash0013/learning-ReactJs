@@ -1,4 +1,21 @@
 // import React, { Component, useEffect, PureComponent, forwardRef } from "react";
+import React, { Component, useEffect, useRef, PureComponent } from "react";
+
+function User(props) {
+    const lastVal = useRef();
+    useEffect(() => {
+        lastVal.current = props.count;
+    });
+    const previousProps = lastVal.current;
+    return (
+        <div>
+            {/* <h1>User Component</h1> */}
+            <h1>Current Value{props.count}</h1>
+            <h1>Previous Value{previousProps}</h1>
+        </div>
+    );
+}
+
 // import { withRouter } from "react-router-dom";
 // import { withRouter } from "react-router";
 
@@ -111,4 +128,4 @@
 
 // export default forwardRef(User);
 // export default withRouter(User);
-//
+export default User;

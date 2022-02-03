@@ -31,28 +31,43 @@ import User from "./User";
 // import Services from "./Services";
 // import Contact from "./Contact";
 
-// previous state with functional component //
+//previous props with hooks in functional component //
 function App() {
-    const [count, setCount] = useState(1);
-    function updateCounter() {
-        // setCount(count + 1);
-        // generate random number
-        let rand = Math.floor(Math.random() * 10);
-        setCount((preVal) => {
-            console.log(preVal);
-            if (preVal < 5) {
-                alert("low value");
-            }
-            return rand;
-        });
-    }
+    const [count, setCount] = useState(0);
     return (
         <div className="App">
-            <h1>{count}</h1>
-            <button onClick={updateCounter}>Click Me to Update Counter</button>
+            {/* <h1>Previous Props</h1> */}
+            <User count={count} />
+            {/* <button onClick={() => setCount(count + 1)}>Update Counter</button> */}
+            <button onClick={() => setCount(Math.floor(Math.random() * 10))}>
+                Update Counter
+            </button>
         </div>
     );
 }
+
+// previous state with functional component //
+// function App() {
+//     const [count, setCount] = useState(1);
+//     function updateCounter() {
+//         // setCount(count + 1);
+//         // generate random number
+//         let rand = Math.floor(Math.random() * 10);
+//         setCount((preVal) => {
+//             console.log(preVal);
+//             if (preVal < 5) {
+//                 alert("low value");
+//             }
+//             return rand;
+//         });
+//     }
+//     return (
+//         <div className="App">
+//             <h1>{count}</h1>
+//             <button onClick={updateCounter}>Click Me to Update Counter</button>
+//         </div>
+//     );
+// }
 
 // update form data
 // function App() {
