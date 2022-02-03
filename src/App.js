@@ -21,7 +21,7 @@ import "./App.css";
 // import Cols from "./Cols";
 // import "./Style.css";
 // import Login from "./Login";
-import User from "./User";
+// import User from "./User";
 // import Profile from "./Profile";
 // import Student from "./Student";
 // import style from "./Modular.module.css";
@@ -31,20 +31,48 @@ import User from "./User";
 // import Services from "./Services";
 // import Contact from "./Contact";
 
-//previous props with hooks in functional component //
+// state with object //
 function App() {
-    const [count, setCount] = useState(0);
+    const [data, setData] = useState({ name: "Abinash", age: 25 });
     return (
         <div className="App">
-            {/* <h1>Previous Props</h1> */}
-            <User count={count} />
-            {/* <button onClick={() => setCount(count + 1)}>Update Counter</button> */}
-            <button onClick={() => setCount(Math.floor(Math.random() * 10))}>
-                Update Counter
-            </button>
+            <h1>State with object</h1>
+            <input
+                type="text"
+                placeholder="Enter Name"
+                value={data.name}
+                onChange={(e) => {
+                    setData({ ...data, name: e.target.value });
+                }}
+            />
+            <input
+                type="text"
+                placeholder="Enter Age"
+                value={data.age}
+                onChange={(e) => {
+                    setData({ ...data, age: e.target.value });
+                }}
+            />
+            <h1>{data.name}</h1>
+            <h1>{data.age}</h1>
         </div>
     );
 }
+
+//previous props with hooks in functional component //
+// function App() {
+//     const [count, setCount] = useState(0);
+//     return (
+//         <div className="App">
+//             {/* <h1>Previous Props</h1> */}
+//             <User count={count} />
+//             {/* <button onClick={() => setCount(count + 1)}>Update Counter</button> */}
+//             <button onClick={() => setCount(Math.floor(Math.random() * 10))}>
+//                 Update Counter
+//             </button>
+//         </div>
+//     );
+// }
 
 // previous state with functional component //
 // function App() {
