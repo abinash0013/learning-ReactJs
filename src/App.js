@@ -31,40 +31,98 @@ import User from "./User";
 // import Services from "./Services";
 // import Contact from "./Contact";
 
-// Using fetch API //
+// Using Post API //
 function App() {
-    const [data, setData] = useState([]);
-    useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/posts").then((result) => {
+    const [userId, setUserId] = useState("");
+    const [title, setTitle] = useState("");
+    const [body, setBody] = useState("");
+    function saveUser() {
+        // console.log({ userId, title, body });
+        let data = { userId, title, body };
+        fetch("https://jsonplaceholder.typicode.com/posts", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        }).then((result) => {
+            // console.log("result", result);
             result.json().then((resp) => {
-                // console.log("result", resp);
-                setData(resp);
+                console.log("resp", resp);
             });
         });
-    }, []);
-    console.log(data);
+    }
     return (
         <div className="App">
-            <h1>Get API Call</h1>
-            <Table>
-                <tbody>
-                    <tr>
-                        <td>Id</td>
-                        <td>Title</td>
-                        <td>Body</td>
-                    </tr>
-                    {data.map((item) => (
-                        <tr>
-                            <td>{item.id}</td>
-                            <td>{item.title}</td>
-                            <td>{item.body}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </Table>
+            <h1>Post API Example</h1>
+            <input
+                type="text"
+                value={userId}
+                onChange={(e) => {
+                    setUserId(e.target.value);
+                }}
+                name="userId"
+            />
+            <br /> <br />
+            <input
+                type="text"
+                value={title}
+                onChange={(e) => {
+                    setTitle(e.target.value);
+                }}
+                name="title"
+            />
+            <br /> <br />
+            <input
+                type="text"
+                value={body}
+                onChange={(e) => {
+                    setBody(e.target.value);
+                }}
+                name="body"
+            />
+            <br /> <br />
+            <Button type="button" onClick={saveUser}>
+                Save
+            </Button>
         </div>
     );
 }
+// Using fetch API //
+// function App() {
+//     const [data, setData] = useState([]);
+//     useEffect(() => {
+//         fetch("https://jsonplaceholder.typicode.com/posts").then((result) => {
+//             result.json().then((resp) => {
+//                 // console.log("result", resp);
+//                 setData(resp);
+//             });
+//         });
+//     }, []);
+//     console.log(data);
+//     return (
+//         <div className="App">
+//             <h1>Get API Call</h1>
+//             <Table>
+//                 <tbody>
+//                     <tr>
+//                         <td>Id</td>
+//                         <td>Title</td>
+//                         <td>Body</td>
+//                     </tr>
+//                     {data.map((item) => (
+//                         <tr>
+//                             <td>{item.id}</td>
+//                             <td>{item.title}</td>
+//                             <td>{item.body}</td>
+//                         </tr>
+//                     ))}
+//                 </tbody>
+//             </Table>
+//         </div>
+//     );
+// }
 
 // Dynamic routing in react js //
 // function App() {
